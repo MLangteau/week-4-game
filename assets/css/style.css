@@ -1,0 +1,37 @@
+/*body { 
+  background: url("../images/asanoha-400px.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	text-align: center;
+	font-family: Helvetica;
+	font-size: 2em;
+	color: white;             
+	clear: both;
+}   */
+
+.sunset {
+/*   /* Background pattern from Subtle Patterns */
+/*	background-image: url("../images/blackthread.png");         */
+	margin: 0 auto;             
+	width: 70%;     
+	color: black;
+	clear: both;         /* no floating on left or right at onset */
+}
+
+#letterIn {
+	font-family: sans-serif;
+	font-size: 3em;
+	color: black;
+}
+.my-panel {
+	display:block;  
+/*	background-color: white;     */
+/*	opacity: .5;
+	color: black;  */
+
+/*	box-shadow: 0px 30px 40px rgba(0,0,0,.1);  
+	float: right;
+*/
+}
