@@ -9,11 +9,13 @@
   
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+
+<!--  <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>   -->
 </head>
 
 <body>
     <div class="sunset">
+
         <row>
           	<heading>
     	        <h1>Crystals Collector!</h1>
@@ -45,13 +47,11 @@
             <p></p>    <p></p>
         <row>
 
-        <div class="crystal-panel">
-        	<div class ="crystals" id="crystal-1"></div>
-        	<div class ="crystals" id="crystal-2"></div>
-        	<div class ="crystals" id="crystal-3"></div>
-        	<div class ="crystals" id="crystal-4"></div>
+        <button id="crystal-start" class="btn bt-success">Crystal Start
+        </button>
+
+        <div id="crystal-panel">
         </div>
-        </row>
 
         <p></p>
         
@@ -63,14 +63,99 @@
         
         <p></p>
     
-        <div id="totalScoreNum">
-            <div 
-                id="totalScore">0
-            </div>
+        <div id="totalScoreNum">9999999
         </div>
     </div>
 
-<!--    <script type="text/javascript" src="assets/javascript/game.js"></script>  -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="assets/javascript/game.js"></script> 
+
+<!--     <script type="text/javascript">
+        
+/*        $(document).ready(function() {
+
+        //    $('').css('border', '4px solid red');
+
+          $("#red-gem").on("click" , function(){
+
+              $("#red-gem").html("red button");   // replace with gem
+                
+              console.log("clicking red");
+
+            
+          }) //  end of crystal1 function
+
+        });  // end of (document).ready(function().../
+*/
+
+/*
+
+$(document).ready(function() {
+
+$("#crystal-start").text("Crystal Start");
+    // get the math generated number
+
+    var gem_types = ["redGem","blueGem","yellowGem","greenGem"];
+
+ //   var sources = ["../assets/images/redgem.png","../assets/images/yellowgem.png"];
+
+    $("#crystal-start").on("click" , function(){
+    //    console.log("on clicks");
+    //  $(".crystal-panel").html()
+
+        for (var i=0; i < gem_types.length; i++) {
+   //         console.log("i: " + i);
+
+            var btn_multi = $("<buttons>");
+
+            btn_multi.text(gem_types[i]);  ///later will put the images here
+
+            console.log("i: " + i + " " + gem_types[i]);
+
+            $("#crystal-panel").append(btn_multi);
+
+        //  btn_multi.addClass();                               Could do it this place
+        //  btn_multi.text("put something")                     Could do it this place  
+
+            btn_multi.attr({
+                "class": "btn btn-default text-center btn-success gems",
+                "data-index": gem_types[i]        //  unique way to get info
+  //              "text": gem_types[i]
+            });   // end of attribute
+
+        };  // end of for loop
+
+        gemsAdder();
+
+    });  // end of on.click function
+
+    function gemsAdder() {
+        // body...
+        $(".gems").on("click" , function(){
+
+            var user = $(this);
+     
+
+            var user_pick = user.data("index");
+            console.log(user);
+            console.log(user_pick);
+
+            $("index").html(user_pick);
+
+        }) //  end of on.click function for gems
+
+    } // end of gemsAdder function
+
+    });  // end of document.ready function
+
+*/
+
+
+    </script>       -->
 
 </body>
 </html>
