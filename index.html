@@ -135,7 +135,7 @@ $(document).ready(function() {
     };  // end of StartGame function
 
 
-    function calculateTotal(event) {
+    function calculateTotal() {
           // logic
         var valueOfGemClicked = $(this).data('value');
 
@@ -191,21 +191,19 @@ $(document).ready(function() {
 
     function refreshScreen() {
 
-        $('#randomGen').html(ScoreToGet);          //  or .text or .append
         ScoreGuessTot = 0;
-        $('#calcScore').html(ScoreGuessTot);
-
         ScoreToGet = genRand (19,120);
 
+        $('#calcScore').html(ScoreGuessTot);
         $('#randomGen').html(ScoreToGet);
       
         console.log("ScoreToGet NOWWWWWWWWWWW: " + ScoreToGet);
 
         for (i = 0; i < gems.length; i++) {
         // Generate gem values
-            gems [i].value = genRand (1,12);
+            gems[i].value = genRand (1,12);
 
-            console.log("[i]: " + i + " gems[i].value: " + gems[i].value);
+            console.log("refreshScreen [i]: " + i + " gems[i].value: " + gems[i].value);
 
             $('<img>').attr('id', 'gem' + i )
             .addClass('gem')
@@ -215,7 +213,7 @@ $(document).ready(function() {
             .html('#crystal-panel');
 
         };  //  end of for loop
-    };
+    };  //  end of refreshScreen function
 
 
 //  ******************    START THE GAME   ********************************************
