@@ -3,8 +3,7 @@
 <head>
 	<title>Crystals Game - Week 4</title>
 </head>
-<body>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
   
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
@@ -32,14 +31,14 @@
         </div>
         </row>
         
-        <p></p>
-        
+        <p></p>  
+
         <row>
         	<div id="randomGen">123
             </div>
 
-            <div class="winLossPara">
-    			     <p id="Wins">Wins: </p> <p id="Losses">Losses: </p>
+            <div class="winLossBox">
+    			     <p id="wins-on-pg">Wins: </p> <p id="losses-on-pg">Losses: </p>
             </div>
 
         </row>
@@ -47,8 +46,11 @@
             <p></p>    <p></p>
         <row>
 
-        <button id="crystal-start" class="btn bt-success">Crystal Start
-        </button>
+<!--    Use this button to create some buttons... 
+        <button id="crystal-start" class="btn bt-success gem">Crystal Start
+        </button>         -->
+
+  <!-- This div is empty, but will be filled dynamically -->
 
         <div id="crystal-panel">
         </div>
@@ -63,7 +65,7 @@
         
         <p></p>
     
-        <div id="totalScoreNum">9999999
+        <div id="calcScore">9999999
         </div>
     </div>
 
@@ -71,11 +73,172 @@
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
       crossorigin="anonymous"></script>
 
+<!--
+    <script type="text/javascript" src="assets/javascript/game.js"></script>     FINAL CODE WILL BE HERE
+-->
+     <script type="text/javascript">
+    
+$(document).ready(function() {
 
-    <script type="text/javascript" src="assets/javascript/game.js"></script> 
+    var ScoreToGet = 0;
+    var ScoreGuessTot = 0;
 
-<!--     <script type="text/javascript">
+    var wins = 0;
+    var losses = 0;
+    
+    var gems = [{
+        name: "red",
+        imgURL: "assets/images/redgem.png",
+        value: 0
+        },
+        {
+        name: "blue",
+        imgURL: "assets/images/bluegem.png",
+        value: 0
+        },
+        {
+        name: "yellow",
+        imgURL: "assets/images/yellowgem.png",
+        value: 0
+        },
+        {
+        name: "green",
+        imgURL: "assets/images/greengem.png",
+        value: 0
+        }];
+
+    function startGame() {
+    // Doing your setup 
+    //  Start and Reset function
+        console.log("Starting game:");
+
+        ScoreToGet = genRand (19,120);
+
+        $('#randomGen').html(ScoreToGet);
+      
+        console.log("ScoreToGet : " + ScoreToGet);
+  
+        for (i = 0; i < gems.length; i++) {
+        // Generate gem values
+            gems [i].value = genRand (1,12);
+
+            console.log("[i]: " + i + " gems[i].value: " + gems[i].value);
+
+            $('<img>').attr('id', 'gem' + i )
+            .addClass('gem')
+            .data('value', gems[i].value)
+            .on('click', calculateTotal)  //This is the on-click for calculateTotal function for the gems
+            .attr('src', gems[i].imgURL)
+            .appendTo('#crystal-panel');
+
+        };  //  end of for loop
+    };  // end of StartGame function
+
+
+    function calculateTotal(event) {
+          // logic
+        var valueOfGemClicked = $(this).data('value');
+
+        console.log("WHO AH!  " + $(this).data('value'));
+
+ //     valueOfGemClicked = parseInt(valueOfGemClicked);
+        console.log("valueOfGemClicked: " + valueOfGemClicked);
+// We then add the valueOfGemClicked to the user's "ScoreGuessTot" which is a global variable.
+        ScoreGuessTot += valueOfGemClicked;
+        $('#calcScore').html(ScoreGuessTot);
+
+        console.log("New ScoreGuessTot: " + ScoreGuessTot);
+//        alert("New Guessing Total: " + ScoreGuessTot);
         
+        if (ScoreGuessTot === ScoreToGet) {
+            wins++;
+            $('#wins-on-pg').html(wins);
+            $('#losses-on-pg').html(losses);
+            alert("You win!");
+            refreshScreen();
+        }
+        else if (ScoreGuessTot > ScoreToGet) {
+            losses++;
+            $('#wins-on-pg').html(wins);
+            $('#losses-on-pg').html(losses);
+            alert("You lose!!");
+            refreshScreen();
+        }
+    };
+
+ /*      $(".crystal-image").on("click", function() {
+        
+            var crystalValue = ($(this).attr("data-index"));
+            // must parse, since it is could be considered string
+            crystalValue = parseInt(crystalValue);
+            //  then add to the ScoreGuessTot counter
+            ScoreGuessTot += crystalValue;
+            console.log(" New Score: " + ScoreGuessTot);
+*/
+
+    //  THIS MY FUNCTION TO GET A RANDOM NUMBER
+/*        var genRand2 = function(minNum,maxNum) {
+            return Math.floor(Math.random() * (maxNum -minNum + 1)) + minNum;
+        };
+
+        This is how you call that function - or something like this
+            ScoreToGet = genRand2 (19,120);
+*/    
+    function genRand (minNum, maxNum) {
+        var gitNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+        return gitNum;
+    };
+
+    function refreshScreen() {
+
+        $('#randomGen').html(ScoreToGet);          //  or .text or .append
+        ScoreGuessTot = 0;
+        $('#calcScore').html(ScoreGuessTot);
+
+        ScoreToGet = genRand (19,120);
+
+        $('#randomGen').html(ScoreToGet);
+      
+        console.log("ScoreToGet NOWWWWWWWWWWW: " + ScoreToGet);
+
+        for (i = 0; i < gems.length; i++) {
+        // Generate gem values
+            gems [i].value = genRand (1,12);
+
+            console.log("[i]: " + i + " gems[i].value: " + gems[i].value);
+
+            $('<img>').attr('id', 'gem' + i )
+            .addClass('gem')
+            .data('value', gems[i].value)
+            .on('click', calculateTotal)  //This is the on-click for calculateTotal function for the gems
+            .attr('src', gems[i].imgURL)
+            .html('#crystal-panel');
+
+        };  //  end of for loop
+    };
+
+
+//  ******************    START THE GAME   ********************************************
+
+    
+    console.log("I am starting everything here:");
+
+    $('#randomGen').html(ScoreToGet);
+//      $('#randomGen').text(ScoreToGet);
+
+    $('#calcScore').html(ScoreGuessTot);
+    console.log("I am here:");
+
+    startGame();
+
+
+ });  // end of document.ready function
+
+
+    </script>      
+
+<!--
+
 /*        $(document).ready(function() {
 
         //    $('').css('border', '4px solid red');
@@ -153,9 +316,8 @@ $("#crystal-start").text("Crystal Start");
     });  // end of document.ready function
 
 */
-
-
-    </script>       -->
+-->
+      
 
 </body>
 </html>
