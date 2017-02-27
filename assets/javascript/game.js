@@ -27,76 +27,9 @@ $(document).ready(function() {
         value: 0
         }];
 
-    function setUpLayout() {
-
-        $('h1').css({
-                'background-color': '#D2691E',
-                'padding':'3% 3% 3% 1px',
-                'margin-left': '1%',
-                'display': 'block',
-                'font-size': '95%',
-                'width':'40%',
-                'color': 'white'
-            });  // end of css 
-
-        $('.para').css({
-                'background-color': '#FFF8DC',
-                'margin-left': '1%',
-                'display': 'block',
-                'font-size': '50%',
-                'font-family': 'Helvetica',
-                'width':'50%',
-                'padding': '2%',
-                'color': '#32CD32'
-            });  // end of css 
-
-        $('#randomGen').css({
-                    'background-color': '#32CD32',
-                    'padding-top': '5%',
-                    'padding-bottom': '5%',
-                    'padding-left': '15%',
-                    'padding-right': '15%',                    
-                    'display': 'block',
-                    'float': 'left',
-                    'margin-left': '1%'
-                    });  // end of css   
-
-        $('.winLossBox').css({
-                'background-color': '#00FFFF',
-                'width': '15%',
-                'padding-top':'1%',
-                'padding-bottom': '1%',
-                'padding-left': '1%',
-                'padding-right': '20%', 
-                'font-size': '50%',
-                'clear': 'both',
-                'display': 'inline-block'
-                });  // end of css 
-
-        $('#totalScoreText').css({
-                'background-color': '#3CB371',
-                'padding':'1%',
-                'margin-left': '1%',
-                'font-size': '60%',
-                'width':'25%'
-            });  // end of css 
-
-        $('#calcScore').css({
-                'background-color': '#3CB371',
-                'display': 'block',
-                'overflow': 'auto',
-                'clear': 'both',
-                'margin-left': '1%',
-                'margin-bottom': '1%',
-                'padding': '1% 10% 10% 1%',
-                'width':'25%'
-                 });  // end of css 
-
-    }  // end of setUpLayout function
-
     function startGame() {
-    // Doing your setup 
-    //  Start and Reset function
+
+    //  Starts Game 
 
         ScoreToGet = genRand (19,120);
         $('#randomGen').html(ScoreToGet);
@@ -115,7 +48,6 @@ $(document).ready(function() {
 
             $('#gem' + i).css({
                     'width': '20%',
-            //        'margin':'10px'
                     'margin-right':'30px'});
 
        };  //  end of for loop
@@ -172,10 +104,74 @@ $(document).ready(function() {
 
     };  //  end of refreshScreen function
 
+    function setUpLayout() {
+
+        $('h1').css({
+                'background-color': '#D2691E',
+                'padding':'3% 3% 3% 1px',
+                'margin-left': '1%',
+                'display': 'block',
+                'font-size': '95%',
+                'width':'40%',
+                'color': 'white'
+            });  // end of css 
+
+        $('.para').css({
+                'background-color': '#FFF8DC',
+                'margin-left': '1%',
+                'display': 'block',
+                'font-size': '40%',
+                'font-family': 'Helvetica',
+                'width':'70%',
+                'padding': '2%',
+                'color': '#32CD32'
+            });  // end of css 
+
+        $('#randomGen').css({
+                    'background-color': '#32CD32',
+                    'padding-top': '3%',
+                    'padding-bottom': '3%',
+                    'padding-left': '10%',
+                    'padding-right': '10%',                    
+                    'display': 'block',
+                    'float': 'left',
+                    'margin-left': '1%'
+                    });  // end of css   
+
+        $('.winLossBox').css({
+                'background-color': '#00FFFF',
+                'width': '15%',
+                'padding-top':'.5%',
+                'padding-bottom': '.5%',
+                'padding-left': '.5%',
+                'padding-right': '10%', 
+                'font-size': '50%',
+                'clear': 'both',
+                'display': 'inline-block'
+                });  // end of css 
+
+        $('#totalScoreText').css({
+                'background-color': '#3CB371',
+                'padding':'1%',
+                'margin-left': '1%',
+                'font-size': '60%',
+                'width':'25%'
+            });  // end of css 
+
+        $('#calcScore').css({
+                'background-color': '#3CB371',
+                'display': 'block',
+                'overflow': 'auto',
+                'clear': 'both',
+                'margin-left': '1%',
+                'margin-bottom': '1%',
+                'padding': '1% 10% 10% 1%',
+                'width':'25%'
+                 });  // end of css 
+
+    }  // end of setUpLayout function
 
 //  ******************    START THE GAME   ********************************************
-
     setUpLayout();
     startGame();
-
  });  // end of document.ready function
