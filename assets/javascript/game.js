@@ -49,7 +49,6 @@ $(document).ready(function() {
             $('#gem' + i).css({
                     'width': '20%',
                     'margin-right':'30px'});
-
        };  //  end of for loop
  
     };  // end of StartGame function
@@ -58,7 +57,7 @@ $(document).ready(function() {
     function calculateTotal() {
         // logic
         var valueOfGemClicked = $(this).data('value');
- //     valueOfGemClicked = parseInt(valueOfGemClicked);            Unnecessary
+ //     valueOfGemClicked = parseInt(valueOfGemClicked);      Unnecessary
 
 // We then add the valueOfGemClicked to the user's "ScoreGuessTot" - global variable
         ScoreGuessTot += valueOfGemClicked;
